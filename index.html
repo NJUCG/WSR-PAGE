@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>World-Space Direct and Indirect Light Sample Reuse with Persistent Reservoirs</title>
+
+        <link rel="stylesheet" href="../public/css/main.css" />
+    </head>
+    <body>
+        <div class="camera">
+            <div class="main">
+                <div class="content">
+                    <div class="pre-content">
+                        <h1>World-Space Direct and Indirect Light Sample Reuse with Persistent Reservoirs</h1>
+                        <h2><a href="./wsr.pdf" target="_blank" class="pdf-link">[Paper PDF]</a></h2>
+                        <h2 class="authors">J. Yuan*, C. Wang*, Q. Sun, J. Guo, J. Bei, Y. Zhang, Y. Guo</h2>
+
+                        <h3>Abstract</h3>
+                        <p style="text-indent: 2em;">
+                            In the context of hardware-accelerated real-time ray tracing, existing spatiotemporal resampling techniques
+                            are still constrained by screen-space dependencies, which may lead to reuse failures. To address this issue,
+                            we propose a world-space resampling method based on a hybrid spatial structure that combines uniform grids
+                            and octrees. This persistent structure, which remains unchanged with respect to camera motion, can
+                            efficiently partition scenes while preserving geometric details.
+                        </p>
+                        <p style="text-indent: 2em;">
+                            Our method begins with generating initial light samples, then remaps these samples to the spatial structure.
+                            Spatial reuse occurs entirely within individual spatial nodes. For direct illumination, we determine the
+                            spatial node of each shading point and select the world-space reservoir from that node to obtain a light
+                            sample. For indirect illumination, we trace a BRDF ray and use the world-space reservoir within the spatial
+                            node at the hit point to improve the NEE. This unified approach enables joint sample reuse for both direct
+                            and indirect illumination.
+                        </p>
+                        <p style="text-indent: 2em;">
+                            Our experiments show that the proposed method achieves 20-70% reduction in RelMSE compared to screen-space
+                            ReSTIR and previous world-space methods under equal-time comparison, with 2× faster convergence rates and
+                            superior temporal stability under rapid camera motion.
+                        </p>
+                    </div>
+
+                    <div class="articles">
+                        <div class="article overview"></div>
+
+                        <div class="article">
+                            <h3>Comparisons between WSR and Other Methods
+                            </h3>
+                            <hr />
+                            <div class="thumbs thumbs-single-large">
+                                <div class="thumb">
+                                        <figure class="image-container">
+                                            <img class="thumb-img" src="results.jpg" alt="All Results">
+                                        </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
